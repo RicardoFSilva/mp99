@@ -13,13 +13,19 @@
     <h1>Vanilla JavaScript App</h1>
     <p><center>Loading message from the API: <b id="name"> ... </b></center></p>
   </main>
-</body>
+
+<center><button onclick="myFunction()">Get Message</button>
 
 <script>
-  (async function() {
-    let { text} = await( await fetch('/api/GetMessage')).json();
-    document.querySelection('#name').textContent = text;
-  }())
+async function myFunction() {
+  const t1 = await fetch('/api/GetMessage').json();
+  const t1 = await t1.json();
+
+  document.querySelector("#name").innerHTML = t2;
+}
 </script>
+
+</body>
+
 
 </html>
