@@ -14,32 +14,16 @@
     <p><center>Loading message from the API: <b id="name"> ... </b></center></p>
   </main>
 
-<center><button onclick="myFunction()">Get Message</button>
 </body>
 
 <script>
 (async function myFunction() {
-  // fh = await fopen("test.txt", 3);
-  // fwrite(fh, "test);
-  // fclose(fh);
-  
-  document.querySelector("#name").textContent = "aaa"; 
+  document.querySelector("#name").textContent = "aaa1"; 
 
-  const t1  = await fetch('/api/GetMessage');
+  t1 = await fetch('api/GetMessage');
+  t2 = await t1.json()
 
-  //let t1 = await fetch(`https://github.com/RicardoFSilva/mp99`);
-  //let t2 = await t1.json()
- 
-
-  if (!t1.ok)
-      document.querySelector("#name").textContent = "not ok";     
-  else
-    document.querySelector("#name").textContent = "ok"; 
-
-  //document.querySelector("#name").textContent = "bbb"; 
-  //const t2 =  await t1.json();
-  // document.querySelector("#name").textContent = t2; 
-  // document.querySelector("#name").textContent = t1.json();   
+  document.querySelector("#name").textContent = t2.text; 
 }())
 </script>
 
